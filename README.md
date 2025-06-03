@@ -1,18 +1,19 @@
-
-
-# Agentic AI Video Summarizer Project
+<br/>
+This project is a web-based application developed using Streamlit, designed to let users upload video files, ask questions about the video content, and receive AI-generated summaries. It also includes a translation feature to support multilingual users.
 <br/>
 
-The project is a web application built using **Streamlit**, which allows users to upload  videos and analyze their content using custom prompts, and also has a translation feature.
+🔧 Technologies and Libraries Used:
+phi: Utilized to import the AI Agent framework, the Google Gemini model, and the DuckDuckGo web search tool for enhancing contextual responses.
+
+google.generativeai: Used for functions like upload_file and get_file to process video files through Gemini's API.
+
+deep_translator: Used to incorporate GoogleTranslator for translating the AI-generated summaries into various languages.
+
+Google AI Studio: Used to generate the Gemini API key, which powers the core AI functionalities of the app.
+
+<br/>
+This is a simple, beginner-level project built as my first attempt at developing an Agentic AI application. I found the process incredibly insightful and enjoyable — and I’m excited to continue building more complex, visually appealing, and impactful AI-powered applications in the future!
 <br/>
 
-1. **phi**: I have used this library to import AI Agent framework, Google Gemini model and DuckDuckGo search tool.
-2. **google.generativeai**: Used for utility functions like 'upload_file' and 'get_file'.
-3. **deep_translator**: Used to import **GoogleTranslator** fro translation properties.
-4. I used **Google AI Studio** to create the API Key for using the Gemini model.
-
-The current project is a basic and simple looking one. It was my first attempt at building an Agentic AI application, but I find this very interesting and will continue exploring and building complex, beautiful and useful applications!
-
-Connect with me! https://www.linkedin.com/in/kanchankumari1732/
-
-
+🔗 Connect With Me
+📍 https://www.linkedin.com/in/rupalipriyajha/
