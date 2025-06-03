@@ -1,0 +1,8 @@
+streamlit
+phidata
+# pathlib
+# tempfile
+google-generativeai
+# duckduckgosearch
+# dotenv
+deep_translator
