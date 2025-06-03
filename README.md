@@ -1,5 +1,6 @@
 
 🎥 AI Video Summarizer
+
 Welcome to the Agentic AI Video Summarizer — a powerful, easy-to-use web application built with Streamlit and Google Gemini that allows you to:
 
 ✅ Upload long videos
@@ -22,6 +23,7 @@ Google AI Studio: Used to generate the Gemini API key, which powers the core AI 
 <br/>
 This is a simple, beginner-level project built as my first attempt at developing an Agentic AI application. I found the process incredibly insightful and enjoyable — and I’m excited to continue building more complex, visually appealing, and impactful AI-powered applications in the future!
 <br/>
+
 
 🔐 Environment Setup
 1. Clone the repository
