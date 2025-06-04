@@ -6,3 +6,9 @@ google-generativeai
 # duckduckgosearch
 # dotenv
 deep_translator
+
+
+
+beautifulsoup4
+requests
+python-dotenv

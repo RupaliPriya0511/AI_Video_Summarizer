@@ -2,9 +2,11 @@
 
 # Core Imports
 import streamlit as st
-from phi.agent import Agent
-from phi.model.google import Gemini
-from phi.tools.duckduckgo import DuckDuckGo
+# from phi.agent import Agent
+# from phi.model.google import Gemini
+# from phi.tools.duckduckgo import DuckDuckGo
+import google.generativeai as genai
+
 from google.generativeai import upload_file, get_file
 import google.generativeai as genai
 from deep_translator import GoogleTranslator
@@ -13,6 +15,12 @@ import tempfile
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+
+import requests
+from bs4 import BeautifulSoup
+
+
+
 
 # Load API Key
 load_dotenv()
@@ -64,16 +72,24 @@ if 'original_summary' not in st.session_state:
 
 # Initialize AI Agent
 @st.cache_resource
-def initialize_agent():
-    return Agent(
-        name="Video AI Summarizer",
-        model=Gemini(id="gemini-2.0-flash-exp"),
-        tools=[DuckDuckGo()],
-        markdown=True,
-    )
-agent = initialize_agent()
+# def initialize_agent():
+#     return Agent(
+#         name="Video AI Summarizer",
+#         model=Gemini(id="gemini-2.0-flash-exp"),
+#         tools=[DuckDuckGo()],
+#         markdown=True,
+#     )
+# agent = initialize_agent()
 
 
+
+def duckduckgo_search(query):
+    url = f"https://html.duckduckgo.com/html/?q={query}"
+    headers = {"User-Agent": "Mozilla/5.0"}
+    res = requests.get(url, headers=headers)
+    soup = BeautifulSoup(res.text, "html.parser")
+    results = soup.find_all("a", class_="result__a")
+    return [r.get_text() for r in results[:5]]
 
 # Upload Video
 st.subheader("📁 Upload a Video")
@@ -109,12 +125,19 @@ if video_file:
                     Give a clear, concise, and user-friendly answer.
                     """
 
-                    response = agent.run(prompt, videos=[processed_video])
-                    st.session_state.original_summary = response.content
+                    # response = agent.run(prompt, videos=[processed_video])
+                    model = genai.GenerativeModel("gemini-1.5-flash")  # or "gemini-1.5-pro"
+                    response = model.generate_content(
+                        [prompt, processed_video],
+                        generation_config={"temperature": 0.7},
+                    )
+                    st.session_state.original_summary = response.text
+
+                    st.session_state.original_summary = response.text
 
                 st.success("✅ Analysis Complete!")
                 st.subheader("📄 Summary")
-                st.markdown(response.content)
+                st.markdown(response.text)
 
             except Exception as error:
                 st.error(f"An error occurred: {error}")

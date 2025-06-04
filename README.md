@@ -1,4 +1,3 @@
-
 🎥 AI Video Summarizer
 
 Welcome to the Agentic AI Video Summarizer — a powerful, easy-to-use web application built with Streamlit and Google Gemini that allows you to:
@@ -8,15 +7,17 @@ Welcome to the Agentic AI Video Summarizer — a powerful, easy-to-use web appli
 ✅ Get summarized answers
 ✅ Translate results into your preferred language
 
+🔧 Technologies and Libraries Used
 
+phi: AI Agent framework and Google Gemini language model for intelligent video analysis and summarization.
 
-🔧 Technologies and Libraries Used:
+google.generativeai: API client for uploading and processing video files with Google Gemini.
 
-phi: Utilized to import the AI Agent framework, the Google Gemini model, and the DuckDuckGo web search tool for enhancing contextual responses.
+deep_translator: For translating AI-generated summaries into multiple languages.
 
-google.generativeai: Used for functions like upload_file and get_file to process video files through Gemini's API.
+requests and BeautifulSoup: To perform web scraping of DuckDuckGo search results for enhancing AI responses.
 
-deep_translator: Used to incorporate GoogleTranslator for translating the AI-generated summaries into various languages.
+python-dotenv: For securely loading environment variables, including the Google API key.
 
 Google AI Studio: Used to generate the Gemini API key, which powers the core AI functionalities of the app.
 
