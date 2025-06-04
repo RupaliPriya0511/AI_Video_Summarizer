@@ -23,10 +23,13 @@ from bs4 import BeautifulSoup
 
 
 # Load API Key
-load_dotenv()
-API_KEY = os.getenv("GOOGLE_API_KEY")
-if API_KEY:
-    genai.configure(api_key=API_KEY)
+# load_dotenv()
+# API_KEY = os.getenv("GOOGLE_API_KEY")
+# if API_KEY:
+#     genai.configure(api_key=API_KEY)
+
+API_KEY = st.secrets["GOOGLE_API_KEY"]
+genai.configure(api_key=API_KEY)
 
 # Set Page Config
 st.set_page_config(
